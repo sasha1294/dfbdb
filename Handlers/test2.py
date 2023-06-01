@@ -39,11 +39,25 @@ async def choose_game(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['game_name'] = message.text
         await test1.sql_add_command_for_games(message.text)
-    await message.answer("Жди - выполняется запрос!")
-    await message.answer(await test6.result())
+    await message.answer("Впишите название сайта")
+
+async def choose_site_for_games(message: types.Message):
+    if message.text == 'The pirat bay':
+        await message.answer('Ждите - выполняется запрос!')
+        await message.answer(await test6.result4)
+    if message.text == 'Ru.traker':
+        await message.answer('Ждите - выполняется запрос!')
+        await message.answer(await test6.result5)
+    if message.text == 'Torrent games':
+        await message.answer('Ждите - выполняется запрос!')
+        await message.answer(await test6.result)
+    if message.text == 'Rutor':
+        await message.answer('Ждите - выполняется запрос!')
+        await message.answer(await test6.result3)
+
     await test1.delete()
     await message.answer("Перезапустите бота")
-    await state.finish()
+    await state.finish
 
 
 async def choose_media(message: types.Message, state: FSMContext):
@@ -51,7 +65,22 @@ async def choose_media(message: types.Message, state: FSMContext):
         data['name_media'] = message.text
         await test1.sql_add_command_for_media(message.text)
     await message.answer("Жди - выполняется запрос!")
-    await message.answer(await test6.result2())
+
+async def choose_site_for_films(message: types.Message):
+    if message.text == 'kinozal':
+        await message.answer('Ждите - выполняется запрос!')
+        pass
+    if message.text == 'The pirat bay':
+        await message.answer('Ждите - выполняется запрос!')
+        await message.answer(await test6.result2)
+    if message.text == 'eztv torrent':
+        await message.answer('Ждите - выполняется запрос!')
+        pass
+    if message.text == 'Ru.traker':
+        await message.answer('Ждите - выполняется запрос!')
+        await message.answer(await test6.result5)
+
+
     await test1.delete()
     await message.answer('Перезапустите бота')
     await state.finish()
@@ -63,6 +92,21 @@ async def choose_songs(message: types.Message, state: FSMContext):
         await test1.sql_add_command_for_songs(message.text)
     await message.answer("Жди - выполняется запрос!")
     await message.answer(await test6.result3())
+
+async def choose_site_for_songs(message: types.Message):
+    if message.text == 'Музыка - Torrent':
+        await message.answer('Ждите - выполняется запрос!')
+        pass
+    if message.text == 'Torlock':
+        await message.answer('Ждите - выполняется запрос!')
+        await message.answer(await test6.result2)
+    if message.text == 'Musify.club':
+        await message.answer('Ждите - выполняется запрос!')
+        pass
+    if message.text == 'Musmore':
+        await message.answer('Ждите - выполняется запрос!')
+        pass
+
     await test1.delete()
     await message.answer("Перезапустите бота")
     await state.finish()
